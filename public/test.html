@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Previous Column Value</title>
+</head>
+<body>
+    <table id="myTable" border="1">
+        <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+        </tr>
+        <tr>
+            <td>Data 1111111111111111111111111111111111111111111111111111111111111</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+        </tr>
+        <tr>
+            <td>Data 4</td>
+            <td>Data 5</td>
+            <td>Data 6</td>
+        </tr>
+    </table>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Select the table element
+            var table = document.getElementById("myTable");
+
+            // Loop through each row of the table
+            for (var i = 1; i < table.rows.length; i++) { // Start from 1 to skip the header row
+                var row = table.rows[i];
+
+                // Loop through each cell of the row
+                for (var j = 1; j < row.cells.length; j++) { // Start from 1 to skip the first column
+                    var cell = row.cells[j];
+                    var prevCell = row.cells[j - 1];
+
+                    // Log the values of the current cell and the previous cell
+                    console.log("Current cell value: " + cell.innerHTML);
+                    console.log("Previous cell value: " + prevCell.innerHTML);
+
+                    console.log("Previous cell value: " + prevCell.offsetWidth);
+
+                }
+            }
+        });
+    </script>
+</body>
+</html>
